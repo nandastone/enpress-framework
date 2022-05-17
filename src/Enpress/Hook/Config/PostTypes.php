@@ -1,7 +1,8 @@
 <?php
 
 namespace Enpress\Hook\Config;
-use Doctrine\Common\Inflector\Inflector;
+
+use Doctrine\Inflector\InflectorFactory;
 
 class PostTypes extends Configurator
 {
@@ -15,6 +16,7 @@ class PostTypes extends Configurator
      */
     protected function set($key, $configuration)
     {
+        $inflector = InflectorFactory::create()->build();
 
         // Validate Properties
         if(!is_array($configuration) || empty($configuration) || sizeof($configuration) > 2){
@@ -30,8 +32,8 @@ class PostTypes extends Configurator
             throw new ConfigException('PostType Configuration Property Mismatch');
         }
 
-        $pluralName = Inflector::pluralize($name);
-        $singularName = Inflector::singularize($name);
+        $pluralName =  $inflector->pluralize($name);
+        $singularName = $inflector->singularize($name);
 
         $defaultArguments = [
             'labels'             => [

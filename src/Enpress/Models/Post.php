@@ -160,7 +160,11 @@ class Post extends WordpressModel
 
     public function getIdAttribute()
     {
-        return $this->attributes['ID'];
+        if (array_key_exists('ID', $this->attributes)) {
+            return $this->attributes['ID'];
+        }
+
+        return null;
     }
 
     public function setTitleAttribute($value)

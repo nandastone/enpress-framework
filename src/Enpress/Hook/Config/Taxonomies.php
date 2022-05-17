@@ -15,6 +15,7 @@ class Taxonomies extends Configurator
      */
     protected function set($key, $configuration)
     {
+        $inflector = InflectorFactory::create()->build();
 
         // Validate Properties
         if(!is_array($configuration) || sizeof($configuration) < 2 || sizeof($configuration) > 3){
@@ -37,8 +38,8 @@ class Taxonomies extends Configurator
             throw new ConfigException('Taxonomy Configuration Property Mismatch');
         }
 
-        $pluralName = Inflector::pluralize($name);
-        $singularName = Inflector::singularize($name);
+        $pluralName = $inflector->pluralize($name);
+        $singularName = $inflector->singularize($name);
 
         $defaultArguments = [
         'hierarchical'          => false,

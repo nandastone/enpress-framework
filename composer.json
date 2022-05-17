@@ -23,7 +23,7 @@
   "require": {
     "php": "^8.1.4",
     "ext-mbstring": "*",
-    "laravel/framework": "^6.0",
+    "laravel/framework": "^9.0",
     "doctrine/inflector": "^2.0.4"
   },
   "require-dev": {
