@@ -17,7 +17,6 @@ class Post extends WordpressModel
     protected $table = 'posts';
 
     protected $appends = [
-        'ID',
         'title',
         'name',
         'date',
@@ -40,10 +39,6 @@ class Post extends WordpressModel
         'post_mime_type',
         'post_author',
         'post_parent'
-    ];
-
-    protected $guarded = [
-        'ID'
     ];
 
     protected $dates = [
