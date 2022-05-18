@@ -48,6 +48,10 @@ class Post extends WordpressModel
         'post_modified_gmt'
     ];
 
+    protected $fillable = [
+        'ID'
+    ];
+
     public function getMeta($key, $default = false)
     {
         $this->loadMissing('meta');
