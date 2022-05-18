@@ -17,7 +17,6 @@ class Post extends WordpressModel
     protected $table = 'posts';
 
     protected $appends = [
-        'id',
         'title',
         'name',
         'date',
@@ -30,7 +29,6 @@ class Post extends WordpressModel
     ];
 
     protected $hidden = [
-        'ID',
         'post_title',
         'post_name',
         'post_content',
@@ -48,10 +46,6 @@ class Post extends WordpressModel
         'post_date_gmt',
         'post_modified',
         'post_modified_gmt'
-    ];
-
-    protected $guarded = [
-        'ID'
     ];
 
     public function getMeta($key, $default = false)
@@ -151,16 +145,6 @@ class Post extends WordpressModel
     public function children()
     {
         return $this->hasMany(static::class, 'post_parent', $this->primaryKey);
-    }
-
-    public function setIdAttribute($value)
-    {
-        $this->ID = $value;
-    }
-
-    public function getIdAttribute()
-    {
-        return $this->ID;
     }
 
     public function setTitleAttribute($value)
