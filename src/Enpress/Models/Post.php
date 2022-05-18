@@ -17,6 +17,7 @@ class Post extends WordpressModel
     protected $table = 'posts';
 
     protected $appends = [
+        'ID',
         'title',
         'name',
         'date',
