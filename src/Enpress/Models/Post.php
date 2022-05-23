@@ -126,12 +126,12 @@ class Post extends WordpressModel
             return $rel;
         }
 
-        return $rel->get()->filter(function($term) use ($taxonomy){
+        return $rel->get()->filter(function($term) use ($taxonomy) {
             return $term->taxonomy == $taxonomy;
         });
     }
 
-    public function categories ()
+    public function categories()
     {
         return $this->terms()->where('taxonomy', 'category');
     }
