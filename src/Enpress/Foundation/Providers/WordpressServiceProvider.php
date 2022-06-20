@@ -13,7 +13,7 @@ class WordpressServiceProvider extends ServiceProvider {
 
         $configInstance = $this->app['config'];
 
-        var_dump('booting wordpress service provider');
+        var_dump('booting WordpressServiceProvider');
         // exit;
 
         // Get Configurations
