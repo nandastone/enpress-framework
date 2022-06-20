@@ -3,7 +3,6 @@
 namespace Enpress\Foundation\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Enpress\Hook;
 
 class WordpressServiceProvider extends ServiceProvider {
 
@@ -74,7 +73,7 @@ class WordpressServiceProvider extends ServiceProvider {
         define('WP_CONTENT_URL', WP_HOME . ($cms['content_directory'] ? '/' . $cms['content_directory'] : ''));
 
         // Register Foundation Wordpress Functions
-        $this->app(Hook::class)->addFunctionPath(dirname(__DIR__) . '/functions');
+        $this->app('hook')->addFunctionPath(dirname(__DIR__) . '/functions');
 
     }
 

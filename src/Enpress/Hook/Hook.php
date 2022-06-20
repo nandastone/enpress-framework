@@ -31,6 +31,8 @@ class Hook
         $this->configurationPath = $container->configPath('cms');
         $config = $container['config'];
 
+        var_dump('construct Hook');
+        var_dump($config);
 
         $this->configurationInstances = [
             new Taxonomies($config->get('taxonomies')),
