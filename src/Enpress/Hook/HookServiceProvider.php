@@ -16,6 +16,6 @@ class HookServiceProvider extends ServiceProvider
     public function register()
     {
         var_dump('register HookServiceProvider');
-        $this->app->bind('hook', Hook::class);
+        $this->app->bind(Hook::class, Hook::class);
     }
 }
