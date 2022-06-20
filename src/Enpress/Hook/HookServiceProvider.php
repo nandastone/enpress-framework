@@ -2,6 +2,8 @@
 
 namespace Enpress\Hook;
 
+use Enpress\Hook;
+
 use Illuminate\Support\ServiceProvider;
 
 class HookServiceProvider extends ServiceProvider
@@ -16,6 +18,8 @@ class HookServiceProvider extends ServiceProvider
     public function register()
     {
         var_dump('booting HookServiceProvider');
-        $this->app->bind('hook', Hook::class);
+        $this->app->bind('hook', function ($app) {
+            return new Hook($app);
+        });
     }
 }
