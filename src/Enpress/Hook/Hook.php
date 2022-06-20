@@ -47,6 +47,7 @@ class Hook
      */
     public function initialize()
     {
+        var_dump('initialize Hook');
         $this->includeFunctions();
         $this->includeMustUsePlugins();
         $this->performConfigurations();
@@ -77,8 +78,11 @@ class Hook
      */
     protected function includeFunctions()
     {
+        var_dump('includeFunctions Hook');
 
         $paths = $this->functionsPaths();
+
+        var_dump($paths);
 
         foreach ($paths as $path) {
             $contents = new \DirectoryIterator($path);
@@ -93,7 +97,6 @@ class Hook
             }
 
             var_dump($files);
-            // exit;
 
             foreach ($files as $file) {
                 include_once $file;
