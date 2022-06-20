@@ -92,6 +92,9 @@ class Hook
                 $files[] = $path . DIRECTORY_SEPARATOR . $file->getBasename();
             }
 
+            var_dump($files);
+            exit;
+
             foreach ($files as $file) {
                 include_once $file;
             }
@@ -113,7 +116,7 @@ class Hook
                 if ($file->isDot()) { continue; }
                 if ($file->isDir()) { continue; }
                 if ($file->getExtension() != 'php') { continue; }
-                
+
                 $file_contents = file_get_contents($file->getPathname());
                 if (stripos($file_contents,'Plugin Name') === -1) { continue; }
 
