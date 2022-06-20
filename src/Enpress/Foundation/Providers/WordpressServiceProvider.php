@@ -12,6 +12,8 @@ class WordpressServiceProvider extends ServiceProvider {
     public function boot() {
 
         $configInstance = $this->app['config'];
+        var_dump('BOOTING!');
+        exit;
 
         // Get Configurations
         $database = $configInstance->get('database.connections.mysql');
