@@ -93,7 +93,7 @@ class Hook
             }
 
             var_dump($files);
-            exit;
+            // exit;
 
             foreach ($files as $file) {
                 include_once $file;
